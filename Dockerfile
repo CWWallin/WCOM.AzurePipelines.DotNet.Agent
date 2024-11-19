@@ -85,7 +85,8 @@ RUN sed -e 's|^#mount_program|mount_program|g' \
         -e 's|^runroot|#runroot|g' \
         /etc/containers/storage.conf \
         > /home/agent/.config/containers/storage.conf && \
-        chown agent:agent /home/agent/.config/containers/storage.conf
+        chown agent:agent /home/agent/.config/containers/storage.conf && \
+        chmod 4755 /usr/bin/newuidmap /usr/bin/newgidmap
 
 # Install MS SQL Tools / Drivers
 ENV PATH="${PATH}:/opt/mssql-tools18/bin/"
